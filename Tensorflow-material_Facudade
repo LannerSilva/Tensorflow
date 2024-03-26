@@ -1,0 +1,22 @@
+from sklearn.preprocessing import LabelBinarizer
+from sklearn.metrics import classification_report
+from tensonrflow.keras.models import Sequential
+from tensonrflow.keras.layers import Dense
+from tensonrflow.keras.optimizers import SGD
+from tensonrflow.keras.datasets import mnist
+from tensonrflow.keras import backend as K
+import matplotlib.pyplot as plt
+import mumpy as np
+
+print("[INFO] accessing MNIST..."0
+((trainX,trainY), (testX,testY)) = mnist.load_data()
+trainX = trainX.reshape((trainX.shape[0],28 * 28 * 1))
+testX = testX.reshape((testX.shape[0],28 * 28 * 1))
+trainX = trainX.astype("float32") / 255.0
+testX = testX.astype("float32") /255.0
+
+lb = LabelBinarizer()
+trainY = lb.fit_transform(trainY)
+testY = lb.transform(testY)
+
+trainY[0]
